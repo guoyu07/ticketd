@@ -23,6 +23,7 @@ def build(bld):
         -Werror=int-to-pointer-cast
         -g
         -O0
+        -std=gnu99
         -Werror=unused-variable
         -Werror=return-type
         -Werror=uninitialized
@@ -46,6 +47,7 @@ def build(bld):
     elif sys.platform.startswith('linux'):
         cflags.extend("""
             -DLINUX
+            -D_GUN_SOURCE
             """.split())
         lib.append('pthread')
         lib.append('rt')
